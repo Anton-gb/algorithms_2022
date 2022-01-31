@@ -17,3 +17,31 @@
 Примечание: ПРОШУ ВАС ВНИМАТЕЛЬНО ЧИТАТЬ ЗАДАНИЕ!
 """
 
+company = {
+    'dex': 100,
+    'kio': 200,
+    'jou': 50,
+    'bad': 500,
+    'qyt': 1100
+}
+
+# 1
+sorted_val = sorted(company.values(), reverse=True)
+result = {}
+for i in sorted_val:
+    for k in company.keys():
+        if company[k] == i:
+            result[k] = i
+            break
+print(result)
+
+# 2
+sorted_val = sorted(company.items(), key=lambda x: x[1], reverse=True)
+result = {key: val for key, val in sorted_val}
+print(result)
+
+# 3
+sorted_val = sorted(company, key=company.get, reverse=True)
+for i in sorted_val:
+    result[i] = company[i]
+print(result)
